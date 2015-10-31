@@ -7,5 +7,10 @@ public interface Soldier {
 
 	Texture getTexture();
 	Position getPosition();
+	float getSpeed();
+	Boolean isMoving();
+	void setDestination(Position position);
+	void setPosition(Position position);
+	void move(float delta);
 	
 }

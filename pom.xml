@@ -91,6 +91,7 @@
 				<artifactId>gdx-backend-ios</artifactId>
 				<version>1.2.0</version>
 			</dependency>
+			
 		</dependencies>
 	</dependencyManagement>
 

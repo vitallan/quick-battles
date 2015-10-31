@@ -3,6 +3,7 @@ package com.allanvital.games.quick.battles.gameplay;
 import java.util.List;
 
 import com.allanvital.games.quick.battles.gameplay.actor.Soldier;
+import com.badlogic.gdx.Input.Buttons;
 import com.badlogic.gdx.InputProcessor;
 
 public class MouseListener implements InputProcessor {
@@ -35,18 +36,32 @@ public class MouseListener implements InputProcessor {
 
 	@Override
 	public boolean touchDown(int screenX, int screenY, int pointer, int button) {
+		if (button == Buttons.LEFT) {
+			checkSelect(screenX, screenY);
+		}
+		if (button == Buttons.RIGHT) {
+			setMove(screenX, screenY);
+		}
+		return false;
+	}
+
+	private void setMove(int screenX, int screenY) {
+		clickedSoldier.setDestination(new Position(screenX, screenY));
+	}
+	
+	private void checkSelect(int screenX, int screenY) {
 		for (Soldier soldier : allSoldiers) {
 			if (isClickInSoldier(screenX, screenY, soldier.getPosition().getX(), 
 					soldier.getPosition().getY(), soldier.getTexture().getHeight(), 
 					soldier.getTexture().getWidth())) {
 				
 				this.clickedSoldier = soldier;
+				return;
 			} 
 		}
 		this.clickedSoldier = null;
-		return false;
 	}
-
+	
 	@Override
 	public boolean touchUp(int screenX, int screenY, int pointer, int button) {
 		// TODO Auto-generated method stub

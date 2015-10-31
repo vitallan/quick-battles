@@ -6,7 +6,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 
 public class Peasant extends MovableSoldier {
-	
+
 	public Peasant(Position position) {
 		super(position, new Texture(Gdx.files.internal(TexturePathsConstants.PEASANT_SPRITE)));
 	}
@@ -16,6 +16,9 @@ public class Peasant extends MovableSoldier {
 		return "<PEASANT " + super.getPosition() + ">";
 	}
 
-	
+	@Override
+	public float getSpeed() {
+		return 2f;
+	}
 	
 }

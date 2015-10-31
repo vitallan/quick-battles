@@ -1,5 +1,7 @@
 package com.allanvital.games.quick.battles.gameplay;
 
+import org.apache.commons.lang.builder.EqualsBuilder;
+
 public class Position {
 
 	private int x;
@@ -28,6 +30,19 @@ public class Position {
 
 	public String toString() {
 		return "[" + x + "-" + y + "]";
+	}
+	
+	@Override
+	public boolean equals(final Object other) {
+		if(other instanceof Position){
+	        final Position obj = (Position) other;
+	        return new EqualsBuilder()
+	            .append(x, obj.x)
+	            .append(y, obj.y)
+	            .isEquals();
+	    } else{
+	        return false;
+	    }
 	}
 	
 }

@@ -24,8 +24,8 @@ public class QuickBattlesGame implements ApplicationListener {
 
 	@Override
 	public void create () {
-		Soldier enemySoldier = new Viking(new Position(2, 2));
-		Soldier mySoldier = new Peasant(new Position(50, 50));
+		Soldier enemySoldier = new Viking(new Position(440, 240));
+		Soldier mySoldier = new Peasant(new Position(120, 240));
 		GamePlayer human = new HumanPlayer();
 		GamePlayer ai = new AIPlayer();
 		human.receiveSoldierList(Arrays.asList(mySoldier));
