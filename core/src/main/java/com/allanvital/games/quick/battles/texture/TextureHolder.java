@@ -26,7 +26,8 @@ public class TextureHolder {
 			for (Soldier soldier : gamePlayer.getSoldiers()) {
 				soldier.move(Gdx.graphics.getDeltaTime());
 				batch.draw(
-					soldier.getTexture(), soldier.getPosition().getX(),
+					soldier.getTexture(), 
+					soldier.getPosition().getX(),
 					Gdx.graphics.getHeight() - 	soldier.getPosition().getY() - soldier.getTexture().getHeight()
 				);
 			}

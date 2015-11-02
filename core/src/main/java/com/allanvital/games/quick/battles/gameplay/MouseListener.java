@@ -86,9 +86,9 @@ public class MouseListener implements InputProcessor {
 		return false;
 	}
 
-	private Boolean isClickInSoldier(int clickX, int clickY, int areaXStart, int areaYStart, int areaHeight, int areaWidth) {
-		int areaXFinal = areaXStart + areaWidth;
-		int areaYFinal = areaYStart + areaHeight;
+	private Boolean isClickInSoldier(int clickX, int clickY, float areaXStart, float areaYStart, int areaHeight, int areaWidth) {
+		float areaXFinal = areaXStart + areaWidth;
+		float areaYFinal = areaYStart + areaHeight;
 		return (clickX >= areaXStart && clickX <= areaXFinal) && (clickY >= areaYStart && clickY <= areaYFinal);
 	}
 	

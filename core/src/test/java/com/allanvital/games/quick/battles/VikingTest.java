@@ -13,6 +13,7 @@ public class VikingTest {
 	private Viking viking;
 	private Position initialPosition = new Position(5,5);
 	private float defaultDelta = 0.01f;
+	
 	@Before
 	public void setup() {
 		viking = new Viking(initialPosition, null);
@@ -20,20 +21,22 @@ public class VikingTest {
 	
 	@Test
 	public void moveTestUp() {
-		Position destination = new Position(3,3);
+		Position destination = new Position(0, 0);
 		viking.setDestination(destination);
-		viking.move(defaultDelta);
-		viking.move(defaultDelta);
+		while (!destination.equals(viking.getPosition())) {
+			viking.move(defaultDelta);
+		}
 		assertEquals(viking.getPosition(), destination);
 	}
 	
 	@Test
 	public void moveTestDown() {
-		Position destination = new Position(7,7);
+		Position destination = new Position(207, 247);
 		viking.setDestination(destination);
-		viking.move(defaultDelta);
-		viking.move(defaultDelta);
+		while (!destination.equals(viking.getPosition())) {
+			viking.move(defaultDelta);
+		}
 		assertEquals(viking.getPosition(), destination);
 	}
-	
+
 }

@@ -3,6 +3,7 @@ package com.allanvital.games.quick.battles.gameplay.actor;
 import com.allanvital.games.quick.battles.gameplay.Position;
 import com.badlogic.gdx.graphics.Texture;
 
+
 public abstract class MovableSoldier implements Soldier {
 
 	protected Position position;
@@ -49,33 +50,22 @@ public abstract class MovableSoldier implements Soldier {
 		if (destinationPosition == null) {
 			return;
 		}
-		int myX = this.getPosition().getX();
-		int myY = this.getPosition().getY();
 		
-		int destinationX = this.destinationPosition.getX();
-		int destinationY = this.destinationPosition.getY();
+		float speedPerTick = deltaTime * this.getSpeed();
+		float deltaX = destinationPosition.getX() - this.getPosition().getX();
+		float deltaY = destinationPosition.getY() - this.getPosition().getY();
+		float goalDistance = (float) Math.sqrt( (deltaX * deltaX) * (deltaY * deltaY) );
 		
-		int xDifference = destinationX - myX;
-		int yDifference = destinationY - myY;
+		Position nextPosition;
 		
-		float xSpeed = this.getSpeed();
-		float ySpeed = this.getSpeed();
-		
-		if (xDifference != 0 && yDifference != 0) {
-			xSpeed = this.getSpeed() / 2;
-			ySpeed = this.getSpeed() / 2;
-		}
-		if (xDifference < 0) {
-			myX = (int) Math.floor(myX - (deltaTime * xSpeed));
+		if (goalDistance > speedPerTick) {
+			float xMove = speedPerTick * deltaX;
+			float yMove = speedPerTick * deltaY;
+			nextPosition = new Position(this.getPosition().getX() + xMove, this.getPosition().getY() + yMove);
 		} else {
-			myX = (int) Math.ceil((myX + (deltaTime * xSpeed)));
+			nextPosition = destinationPosition;
 		}
-		if (yDifference < 0) {
-			myY = (int) Math.floor(myY - (deltaTime * ySpeed));
-		} else {
-			myY = (int) Math.ceil(myY + (deltaTime * ySpeed));
-		}
-		this.setPosition(new Position(myX, myY));
+		this.setPosition(nextPosition);
 	}
 
 }
