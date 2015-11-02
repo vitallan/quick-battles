@@ -22,6 +22,9 @@ public class Viking extends MovableSoldier {
 
 	@Override
 	public float getSpeed() {
+		if (isBattling) {
+			return 0.2f;
+		}
 		return 2.8f;
 	}
 

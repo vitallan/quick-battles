@@ -18,6 +18,9 @@ public class Peasant extends MovableSoldier {
 
 	@Override
 	public float getSpeed() {
+		if (isBattling) {
+			return 0.2f;
+		}
 		return 1.5f;
 	}
 	

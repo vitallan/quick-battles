@@ -9,6 +9,7 @@ public abstract class MovableSoldier implements Soldier {
 	protected Position position;
 	protected Texture texture;
 	protected Position destinationPosition;
+	protected boolean isBattling = false;
 	
 	public abstract String toString();
 	
@@ -68,4 +69,8 @@ public abstract class MovableSoldier implements Soldier {
 		this.setPosition(nextPosition);
 	}
 
+	public void setBattle(boolean isBattling, Soldier soldier) {
+		this.isBattling = isBattling;
+	}
+	
 }

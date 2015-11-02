@@ -18,7 +18,8 @@ import com.badlogic.gdx.Gdx;
 
 public class QuickBattlesGame implements ApplicationListener {
 	
-	private List<GamePlayer> currentPlayers = new LinkedList<>();
+	private GamePlayer humanPlayer;
+	private GamePlayer aiPlayer;
 	private List<Soldier> allSoldiers = new LinkedList<>();
 	private TextureHolder holder;
 
@@ -26,12 +27,10 @@ public class QuickBattlesGame implements ApplicationListener {
 	public void create () {
 		Soldier enemySoldier = new Viking(new Position(440, 240));
 		Soldier mySoldier = new Peasant(new Position(120, 240));
-		GamePlayer human = new HumanPlayer();
-		GamePlayer ai = new AIPlayer();
-		human.receiveSoldierList(Arrays.asList(mySoldier));
-		ai.receiveSoldierList(Arrays.asList(enemySoldier));
-		currentPlayers.add(human);
-		currentPlayers.add(ai);
+		humanPlayer = new HumanPlayer();
+		aiPlayer = new AIPlayer();
+		humanPlayer.receiveSoldierList(Arrays.asList(mySoldier));
+		aiPlayer.receiveSoldierList(Arrays.asList(enemySoldier));
 		allSoldiers.add(mySoldier);
 		allSoldiers.add(enemySoldier);
 		holder = new TextureHolder();
@@ -44,7 +43,7 @@ public class QuickBattlesGame implements ApplicationListener {
 
 	@Override
 	public void render () {
-		holder.updatePositions(currentPlayers);
+		holder.updatePositions(humanPlayer, aiPlayer);
 	}
 
 	@Override

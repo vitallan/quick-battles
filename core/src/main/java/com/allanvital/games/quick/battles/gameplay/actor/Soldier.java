@@ -12,5 +12,6 @@ public interface Soldier {
 	void setDestination(Position position);
 	void setPosition(Position position);
 	void move(float delta);
+	void setBattle(boolean isBattling, Soldier soldier);
 	
 }
