@@ -42,17 +42,15 @@ public class TextureHolder {
 	}
 	
 	private void checkSoldierColliding(Soldier currentSoldier, GamePlayer enemyPlayer) {
-		for (Soldier soldier : enemyPlayer.getSoldiers()) {
+		for (Soldier enemySoldier : enemyPlayer.getSoldiers()) {
 			Rectangle currentSoldierRectangle = this.getSoldierRectangle(currentSoldier);
-			Rectangle enemySoldierRectangle = this.getSoldierRectangle(soldier);
-			
+			Rectangle enemySoldierRectangle = this.getSoldierRectangle(enemySoldier);
 			if (currentSoldierRectangle.intersects(enemySoldierRectangle)) {
-				currentSoldier.setBattle(true, soldier);
-				soldier.setBattle(true, currentSoldier);
-				return;
+				currentSoldier.setStatusWith(enemySoldier, false);
+			} else {
+				currentSoldier.setStatusWith(enemySoldier, true);
 			}
 		}
-		currentSoldier.setBattle(false, null);
 	}
 	
 	private Rectangle getSoldierRectangle(Soldier soldier) {

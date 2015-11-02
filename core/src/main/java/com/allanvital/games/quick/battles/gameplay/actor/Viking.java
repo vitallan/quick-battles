@@ -5,7 +5,7 @@ import com.allanvital.games.quick.battles.texture.TexturePathsConstants;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 
-public class Viking extends MovableSoldier {
+public class Viking extends MovablePrintableSoldier {
 	
 	public Viking(Position position, Texture texture) {
 		super(position, texture);

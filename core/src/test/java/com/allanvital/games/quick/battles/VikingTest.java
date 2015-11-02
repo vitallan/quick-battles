@@ -23,7 +23,7 @@ public class VikingTest {
 	public void moveTestUp() {
 		Position destination = new Position(0, 0);
 		viking.setDestination(destination);
-		while (!destination.equals(viking.getPosition())) {
+		for (int i = 0; i < 121; i++) {
 			viking.move(defaultDelta);
 		}
 		assertEquals(viking.getPosition(), destination);
@@ -33,7 +33,7 @@ public class VikingTest {
 	public void moveTestDown() {
 		Position destination = new Position(207, 247);
 		viking.setDestination(destination);
-		while (!destination.equals(viking.getPosition())) {
+		for (int i = 0; i < 256; i++) {
 			viking.move(defaultDelta);
 		}
 		assertEquals(viking.getPosition(), destination);

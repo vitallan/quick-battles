@@ -5,7 +5,7 @@ import com.allanvital.games.quick.battles.texture.TexturePathsConstants;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 
-public class Peasant extends MovableSoldier {
+public class Peasant extends MovablePrintableSoldier {
 
 	public Peasant(Position position) {
 		super(position, new Texture(Gdx.files.internal(TexturePathsConstants.PEASANT_SPRITE)));

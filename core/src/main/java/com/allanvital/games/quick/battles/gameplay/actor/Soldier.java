@@ -1,17 +1,7 @@
 package com.allanvital.games.quick.battles.gameplay.actor;
 
-import com.allanvital.games.quick.battles.gameplay.Position;
-import com.badlogic.gdx.graphics.Texture;
+public interface Soldier extends Movable, Printable {
 
-public interface Soldier {
+	void setStatusWith(Soldier soldier, boolean isBattling);
 
-	Texture getTexture();
-	Position getPosition();
-	float getSpeed();
-	Boolean isMoving();
-	void setDestination(Position position);
-	void setPosition(Position position);
-	void move(float delta);
-	void setBattle(boolean isBattling, Soldier soldier);
-	
 }
