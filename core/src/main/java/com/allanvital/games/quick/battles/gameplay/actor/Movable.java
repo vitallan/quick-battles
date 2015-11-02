@@ -25,7 +25,6 @@ public interface Movable {
 		if(angle < 0){
 	        angle += 360;
 	    }
-		System.out.println(AngleUtils.getFacingDirection(angle) + " -> " + angle);
 		return AngleUtils.getFacingDirection(angle);
 	}
 	
